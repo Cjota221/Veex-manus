@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEEX - Insumos</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="./dashboard.html">
+                    <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="./dashboard.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./modelos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./insumos.html" class="nav-link active">
+                        <div class="nav-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <span class="nav-text">Insumos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-fixos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Custos Fixos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-variaveis.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Custos Variáveis</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./producao.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="nav-text">Produção</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./relatorios.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./configuracoes.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Usuário</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </aside>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-button" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Insumos</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="btn-novo-insumo">
+                        <i class="fas fa-plus"></i>
+                        Novo Insumo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Resumo de Insumos -->
+            <div class="card-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Total de Insumos</div>
+                        <div class="metric-value">15</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Estoque Baixo</div>
+                        <div class="metric-value">3</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Valor em Estoque</div>
+                        <div class="metric-value">R$ 25.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alertas de Estoque -->
+            <div class="card alert-card alert-warning mb-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-md" style="font-size: 24px;"></i>
+                    <div>
+                        <h3 class="mb-sm">Alerta de Estoque Baixo</h3>
+                        <p class="mb-0">3 insumos estão com estoque abaixo do mínimo. Verifique a tabela abaixo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela de Insumos -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Lista de Insumos</h2>
+                    <div class="flex items-center gap-md">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar insumo...">
+                            <div class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <select class="form-control form-select">
+                            <option value="">Todos os tipos</option>
+                            <option value="materia-prima">Matéria-prima</option>
+                            <option value="componente">Componente</option>
+                            <option value="embalagem">Embalagem</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Unidade</th>
+                                <th>Preço</th>
+                                <th>Estoque Atual</th>
+                                <th>Estoque Mínimo</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Couro</td>
+                                <td>Matéria-prima</td>
+                                <td>m²</td>
+                                <td>R$ 80,00</td>
+                                <td>120</td>
+                                <td>50</td>
+                                <td><span class="badge bg-success">OK</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Borracha</td>
+                                <td>Matéria-prima</td>
+                                <td>kg</td>
+                                <td>R$ 45,00</td>
+                                <td>80</td>
+                                <td>30</td>
+                                <td><span class="badge bg-success">OK</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Tecido</td>
+                                <td>Matéria-prima</td>
+                                <td>m</td>
+                                <td>R$ 25,00</td>
+                                <td>15</td>
+                                <td>20</td>
+                                <td><span class="badge bg-warning">Baixo</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cola</td>
+                                <td>Componente</td>
+                                <td>L</td>
+                                <td>R$ 30,00</td>
+                                <td>25</td>
+                                <td>10</td>
+                                <td><span class="badge bg-success">OK</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Cadarço</td>
+                                <td>Componente</td>
+                                <td>un</td>
+                                <td>R$ 2,50</td>
+                                <td>50</td>
+                                <td>100</td>
+                                <td><span class="badge bg-warning">Baixo</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Caixa</td>
+                                <td>Embalagem</td>
+                                <td>un</td>
+                                <td>R$ 3,00</td>
+                                <td>30</td>
+                                <td>50</td>
+                                <td><span class="badge bg-warning">Baixo</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-pagination">
+                    <div class="pagination-info">
+                        Mostrando 1-6 de 15 itens
+                    </div>
+                    <div class="pagination">
+                        <div class="pagination-item">
+                            <a href="#" class="pagination-link">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </div>
+                        <div class="pagination-item">
+                            <a href="#" class="pagination-link active">1</a>
+                        </div>
+                        <div class="pagination-item">
+                            <a href="#" class="pagination-link">2</a>
+                        </div>
+                        <div class="pagination-item">
+                            <a href="#" class="pagination-link">3</a>
+                        </div>
+                        <div class="pagination-item">
+                            <a href="#" class="pagination-link">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Consumo de Insumos -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Consumo de Insumos</h2>
+                    <select class="form-control form-select" style="width: 200px;">
+                        <option value="mes">Último mês</option>
+                        <option value="trimestre">Último trimestre</option>
+                        <option value="semestre">Último semestre</option>
+                        <option value="ano">Último ano</option>
+                    </select>
+                </div>
+                
+                <div class="p-lg">
+                    <div class="chart-container">
+                        <!-- Aqui seria inserido um gráfico via JavaScript -->
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                            <div class="text-center">
+                                <i class="fas fa-chart-bar" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                <p>Gráfico de consumo de insumos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal de Novo Insumo -->
+    <div class="modal-backdrop" id="modal-novo-insumo">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Novo Insumo</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-novo-insumo">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Insumo</label>
+                        <input type="text" class="form-control" placeholder="Ex: Couro">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Tipo</label>
+                        <select class="form-control form-select">
+                            <option value="">Selecione um tipo</option>
+                            <option value="materia-prima">Matéria-prima</option>
+                            <option value="componente">Componente</option>
+                            <option value="embalagem">Embalagem</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grid-2-cols">
+                        <div class="form-group">
+                            <label class="form-label">Unidade de Medida</label>
+                            <select class="form-control form-select">
+                                <option value="">Selecione</option>
+                                <option value="m">Metro (m)</option>
+                                <option value="m2">Metro quadrado (m²)</option>
+                                <option value="kg">Quilograma (kg)</option>
+                                <option value="l">Litro (L)</option>
+                                <option value="un">Unidade (un)</option>
+                                <option value="par">Par</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Preço por Unidade</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" placeholder="0,00">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2-cols">
+                        <div class="form-group">
+                            <label class="form-label">Estoque Atual</label>
+                            <input type="number" class="form-control" placeholder="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Estoque Mínimo</label>
+                            <input type="number" class="form-control" placeholder="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Fornecedor</label>
+                        <input type="text" class="form-control" placeholder="Nome do fornecedor">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Observações</label>
+                        <textarea class="form-control" rows="3" placeholder="Observações adicionais sobre o insumo..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                <button class="btn btn-primary" id="btn-salvar">Salvar Insumo</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Modal
+        const modalNovoInsumo = document.getElementById('modal-novo-insumo');
+        const btnNovoInsumo = document.getElementById('btn-novo-insumo');
+        const modalClose = document.getElementById('modal-close');
+        const btnCancelar = document.getElementById('btn-cancelar');
+        
+        btnNovoInsumo.addEventListener('click', () => {
+            modalNovoInsumo.classList.add('show');
+            modalNovoInsumo.querySelector('.modal').classList.add('show');
+        });
+        
+        function closeModal() {
+            modalNovoInsumo.classList.remove('show');
+            modalNovoInsumo.querySelector('.modal').classList.remove('show');
+        }
+        
+        modalClose.addEventListener('click', closeModal);
+        btnCancelar.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        modalNovoInsumo.addEventListener('click', (e) => {
+            if (e.target === modalNovoInsumo) {
+                closeModal();
+            }
+        });
+        
+        // Adicionar badge de estilo
+        document.querySelectorAll('.badge').forEach(badge => {
+            if (badge.classList.contains('bg-success')) {
+                badge.style.backgroundColor = 'var(--color-accent-success)';
+                badge.style.color = 'white';
+                badge.style.padding = '3px 8px';
+                badge.style.borderRadius = 'var(--border-radius-full)';
+                badge.style.fontSize = 'var(--font-size-xs)';
+                badge.style.fontWeight = 'var(--font-weight-medium)';
+            } else if (badge.classList.contains('bg-warning')) {
+                badge.style.backgroundColor = 'var(--color-accent-warning)';
+                badge.style.color = '#212529';
+                badge.style.padding = '3px 8px';
+                badge.style.borderRadius = 'var(--border-radius-full)';
+                badge.style.fontSize = 'var(--font-size-xs)';
+                badge.style.fontWeight = 'var(--font-weight-medium)';
+            }
+        });
+    </script>
+</body>
+</html>
