@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEEX - Dashboard</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="./dashboard.html">
+                    <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="./dashboard.html" class="nav-link active">
+                        <div class="nav-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./modelos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./insumos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <span class="nav-text">Insumos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-fixos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Custos Fixos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-variaveis.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Custos Variáveis</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./producao.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="nav-text">Produção</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./calculadora.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <span class="nav-text">Calculadora</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./relatorios.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./configuracoes.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Usuário</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </aside>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-button" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i>
+                        Exportar
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i>
+                        Atualizar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cards de Métricas Principais -->
+            <div class="card-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Produção do Mês</div>
+                        <div class="metric-value">1.250 <span class="metric-unit">pares</span></div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Custo Médio por Par</div>
+                        <div class="metric-value">R$ 7,50</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Lucro Total</div>
+                        <div class="metric-value">R$ 26.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modelos de Calçado -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Modelos de Calçado</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Custo Unitário</th>
+                                <th>Margem</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-sm">
+                                        <img src="https://via.placeholder.com/40" alt="Tênis Esportivo" style="border-radius: 4px;">
+                                        <span>Tênis Esportivo</span>
+                                    </div>
+                                </td>
+                                <td>R$ 95,00</td>
+                                <td>25%</td>
+                                <td>R$ 119,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-sm">
+                                        <img src="https://via.placeholder.com/40" alt="Sandália Casual" style="border-radius: 4px;">
+                                        <span>Sandália Casual</span>
+                                    </div>
+                                </td>
+                                <td>R$ 66,00</td>
+                                <td>30%</td>
+                                <td>R$ 36,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-sm">
+                                        <img src="https://via.placeholder.com/40" alt="Sapato Social" style="border-radius: 4px;">
+                                        <span>Sapato Social</span>
+                                    </div>
+                                </td>
+                                <td>R$ 112,00</td>
+                                <td>20%</td>
+                                <td>R$ 135,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-sm">
+                                        <img src="https://via.placeholder.com/40" alt="Bota Feminina" style="border-radius: 4px;">
+                                        <span>Bota Feminina</span>
+                                    </div>
+                                </td>
+                                <td>R$ 135,00</td>
+                                <td>25%</td>
+                                <td>R$ 169,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Grid de Resumo e Precificação -->
+            <div class="grid-2-cols mt-xl">
+                <!-- Resumo de Custos -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Resumo de Custos</h2>
+                    </div>
+                    
+                    <div class="p-lg">
+                        <div class="mb-lg">
+                            <div class="flex justify-between mb-sm">
+                                <span>Insumos:</span>
+                                <span class="font-semibold">R$ 25.000</span>
+                            </div>
+                            <div class="flex justify-between mb-sm">
+                                <span>Custos Fixos:</span>
+                                <span class="font-semibold">R$ 8.500</span>
+                            </div>
+                            <div class="flex justify-between mb-sm">
+                                <span>Custos Variáveis:</span>
+                                <span class="font-semibold">R$ 3.250</span>
+                            </div>
+                            <hr class="mb-sm" style="border-color: rgba(255, 255, 255, 0.1);">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Custo Total:</span>
+                                <span class="font-bold">R$ 36.750</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <!-- Aqui seria inserido um gráfico via JavaScript -->
+                            <div style="height: 200px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-pie" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                    <p>Gráfico de distribuição de custos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Precificação -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Precificação</h2>
+                    </div>
+                    
+                    <div class="p-lg">
+                        <div class="mb-md">
+                            <label class="form-label">Margem de Lucro Desejada</label>
+                            <input type="range" class="form-range" min="0" max="100" value="30" id="margem-lucro">
+                            <div class="flex justify-between">
+                                <span>0%</span>
+                                <span class="font-semibold" id="margem-valor">30%</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-md text-center bg-primary" style="background-color: var(--color-primary);">
+                            <div class="mb-sm">Preço Sugerido de Venda</div>
+                            <div style="font-size: 2rem; font-weight: bold;" id="preco-sugerido">R$ 200,00</div>
+                        </div>
+                        
+                        <div class="mt-md">
+                            <a href="./calculadora.html" class="btn btn-outline btn-block">
+                                <i class="fas fa-calculator"></i>
+                                Ir para Calculadora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resumo de Produção -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Resumo de Produção</h2>
+                </div>
+                
+                <div class="grid-2-cols p-lg">
+                    <div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Modelo</th>
+                                        <th>Quantidade</th>
+                                        <th>Custo Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Oxford Casual</td>
+                                        <td>100</td>
+                                        <td>R$ 3.500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sandália</td>
+                                        <td>50</td>
+                                        <td>R$ 3.500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-lg">
+                            <h3 class="mb-md">Resumo de Consumo de Insumos</h3>
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome do Insumo</th>
+                                            <th>Quantidade Consumida</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Couro</td>
+                                            <td>120 m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Borracha</td>
+                                            <td>80 m</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <!-- Aqui seria inserido um gráfico via JavaScript -->
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                <p>Gráfico de produção mensal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Precificação
+        const margemLucro = document.getElementById('margem-lucro');
+        const margemValor = document.getElementById('margem-valor');
+        const precoSugerido = document.getElementById('preco-sugerido');
+        
+        margemLucro.addEventListener('input', () => {
+            const margem = margemLucro.value;
+            margemValor.textContent = `${margem}%`;
+            
+            // Cálculo simplificado para demonstração
+            const custoBase = 140;
+            const preco = custoBase * (1 + margem / 100);
+            precoSugerido.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+        });
+    </script>
+</body>
+</html>
