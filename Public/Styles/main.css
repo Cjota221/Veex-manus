@@ -1,0 +1,29 @@
+/* 
+* VEEX - Sistema de Gestão de Custos e Produção
+* Arquivo CSS principal
+* Importa todos os arquivos de estilo
+*/
+
+/* Base */
+@import url('./reset.css');
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./layout.css');
+
+/* Componentes */
+@import url('./components/sidebar.css');
+@import url('./components/cards.css');
+@import url('./components/buttons.css');
+@import url('./components/forms.css');
+@import url('./components/tables.css');
+@import url('./components/modals.css');
+@import url('./components/charts.css');
+
+/* Animações */
+@import url('./animations.css');
+
+/* Responsividade */
+@import url('./responsive.css');
+
+/* Temas */
+@import url('./themes.css');
