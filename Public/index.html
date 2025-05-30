@@ -6,20 +6,27 @@
     <title>VEEX - Dashboard</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Scripts principais -->
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/storage.js" defer></script>
+    <script src="./scripts/charts.js" defer></script>
+    <script src="./scripts/integration.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
+    <script src="./scripts/pages/dashboard.js" defer></script>
 </head>
 <body>
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-logo">
-                <a href="./dashboard.html">
+                <a href="./index.html">
                     <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
                 </a>
             </div>
             
             <nav class="sidebar-nav">
                 <div class="nav-item">
-                    <a href="./dashboard.html" class="nav-link active">
+                    <a href="./index.html" class="nav-link active">
                         <div class="nav-icon">
                             <i class="fas fa-th-large"></i>
                         </div>
@@ -265,13 +272,7 @@
                         </div>
                         
                         <div class="chart-container">
-                            <!-- Aqui seria inserido um gráfico via JavaScript -->
-                            <div style="height: 200px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
-                                <div class="text-center">
-                                    <i class="fas fa-chart-pie" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
-                                    <p>Gráfico de distribuição de custos</p>
-                                </div>
-                            </div>
+                            <canvas id="chart-distribuicao-custos"></canvas>
                         </div>
                     </div>
                 </div>
@@ -366,62 +367,14 @@
                     </div>
                     
                     <div class="chart-container">
-                        <!-- Aqui seria inserido um gráfico via JavaScript -->
-                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
-                            <div class="text-center">
-                                <i class="fas fa-chart-line" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
-                                <p>Gráfico de produção mensal</p>
-                            </div>
-                        </div>
+                        <canvas id="chart-producao-mensal"></canvas>
                     </div>
                 </div>
             </div>
         </main>
     </div>
     
-    <script>
-        // Sidebar toggle
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.getElementById('sidebar-toggle');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            
-            if (sidebar.classList.contains('collapsed')) {
-                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            } else {
-                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            }
-        });
-        
-        mobileMenuButton.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-        
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth < 992) {
-                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    sidebar.classList.remove('active');
-                }
-            }
-        });
-        
-        // Precificação
-        const margemLucro = document.getElementById('margem-lucro');
-        const margemValor = document.getElementById('margem-valor');
-        const precoSugerido = document.getElementById('preco-sugerido');
-        
-        margemLucro.addEventListener('input', () => {
-            const margem = margemLucro.value;
-            margemValor.textContent = `${margem}%`;
-            
-            // Cálculo simplificado para demonstração
-            const custoBase = 140;
-            const preco = custoBase * (1 + margem / 100);
-            precoSugerido.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
-        });
-    </script>
+    <!-- Adicionar biblioteca Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
