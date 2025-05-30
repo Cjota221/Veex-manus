@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEEX - Custos Fixos</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="./dashboard.html">
+                    <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="./dashboard.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./modelos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./insumos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <span class="nav-text">Insumos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-fixos.html" class="nav-link active">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Custos Fixos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-variaveis.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Custos Variáveis</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./producao.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="nav-text">Produção</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./relatorios.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./configuracoes.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Usuário</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </aside>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-button" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Custos Fixos</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="btn-novo-custo">
+                        <i class="fas fa-plus"></i>
+                        Novo Custo Fixo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Resumo de Custos Fixos -->
+            <div class="card-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Total Mensal</div>
+                        <div class="metric-value">R$ 8.500</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">Custo por Par</div>
+                        <div class="metric-value">R$ 6,80</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-label">% do Custo Total</div>
+                        <div class="metric-value">23%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seletor de Mês -->
+            <div class="card mb-lg">
+                <div class="card-header">
+                    <h2 class="card-title">Período</h2>
+                </div>
+                <div class="p-md">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label class="form-label">Mês</label>
+                            <select class="form-control form-select">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5" selected>Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Ano</label>
+                            <select class="form-control form-select">
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025" selected>2025</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i>
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela de Custos Fixos -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Custos Fixos - Maio/2025</h2>
+                    <div class="flex items-center gap-md">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <div class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <select class="form-control form-select">
+                            <option value="">Todas as categorias</option>
+                            <option value="aluguel">Aluguel</option>
+                            <option value="pessoal">Pessoal</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Vencimento</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aluguel do Galpão</td>
+                                <td>Aluguel</td>
+                                <td>R$ 3.500,00</td>
+                                <td>05/05/2025</td>
+                                <td><span class="badge bg-success">Pago</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Salários</td>
+                                <td>Pessoal</td>
+                                <td>R$ 2.800,00</td>
+                                <td>10/05/2025</td>
+                                <td><span class="badge bg-success">Pago</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Energia Elétrica</td>
+                                <td>Serviços</td>
+                                <td>R$ 850,00</td>
+                                <td>15/05/2025</td>
+                                <td><span class="badge bg-success">Pago</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Água</td>
+                                <td>Serviços</td>
+                                <td>R$ 320,00</td>
+                                <td>20/05/2025</td>
+                                <td><span class="badge bg-warning">Pendente</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Internet</td>
+                                <td>Serviços</td>
+                                <td>R$ 180,00</td>
+                                <td>25/05/2025</td>
+                                <td><span class="badge bg-warning">Pendente</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Contador</td>
+                                <td>Serviços</td>
+                                <td>R$ 450,00</td>
+                                <td>28/05/2025</td>
+                                <td><span class="badge bg-warning">Pendente</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Software de Gestão</td>
+                                <td>Outros</td>
+                                <td>R$ 400,00</td>
+                                <td>30/05/2025</td>
+                                <td><span class="badge bg-warning">Pendente</span></td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-right font-semibold">Total:</td>
+                                <td class="font-bold">R$ 8.500,00</td>
+                                <td colspan="3"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Gráfico de Custos Fixos -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Evolução dos Custos Fixos</h2>
+                    <select class="form-control form-select" style="width: 200px;">
+                        <option value="6">Últimos 6 meses</option>
+                        <option value="12" selected>Últimos 12 meses</option>
+                        <option value="24">Últimos 24 meses</option>
+                    </select>
+                </div>
+                
+                <div class="p-lg">
+                    <div class="chart-container">
+                        <!-- Aqui seria inserido um gráfico via JavaScript -->
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                <p>Gráfico de evolução dos custos fixos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distribuição por Categoria -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Distribuição por Categoria</h2>
+                </div>
+                
+                <div class="p-lg">
+                    <div class="grid-2-cols">
+                        <div class="chart-container">
+                            <!-- Aqui seria inserido um gráfico de pizza via JavaScript -->
+                            <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-pie" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                    <p>Gráfico de distribuição por categoria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="mb-md">Resumo por Categoria</h3>
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Categoria</th>
+                                            <th>Valor</th>
+                                            <th>Percentual</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Aluguel</td>
+                                            <td>R$ 3.500,00</td>
+                                            <td>41.2%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pessoal</td>
+                                            <td>R$ 2.800,00</td>
+                                            <td>32.9%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Serviços</td>
+                                            <td>R$ 1.800,00</td>
+                                            <td>21.2%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Outros</td>
+                                            <td>R$ 400,00</td>
+                                            <td>4.7%</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="font-semibold">Total</td>
+                                            <td class="font-bold">R$ 8.500,00</td>
+                                            <td class="font-bold">100%</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal de Novo Custo Fixo -->
+    <div class="modal-backdrop" id="modal-novo-custo">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Novo Custo Fixo</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-novo-custo">
+                    <div class="form-group">
+                        <label class="form-label">Descrição</label>
+                        <input type="text" class="form-control" placeholder="Ex: Aluguel do Galpão">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Categoria</label>
+                        <select class="form-control form-select">
+                            <option value="">Selecione uma categoria</option>
+                            <option value="aluguel">Aluguel</option>
+                            <option value="pessoal">Pessoal</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grid-2-cols">
+                        <div class="form-group">
+                            <label class="form-label">Valor</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" placeholder="0,00">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Data de Vencimento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <div class="flex gap-md">
+                            <div class="form-check">
+                                <input type="radio" name="status" id="status-pendente" class="form-check-input" checked>
+                                <label for="status-pendente" class="form-check-label">Pendente</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="status" id="status-pago" class="form-check-input">
+                                <label for="status-pago" class="form-check-label">Pago</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Observações</label>
+                        <textarea class="form-control" rows="3" placeholder="Observações adicionais..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                <button class="btn btn-primary" id="btn-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Modal
+        const modalNovoCusto = document.getElementById('modal-novo-custo');
+        const btnNovoCusto = document.getElementById('btn-novo-custo');
+        const modalClose = document.getElementById('modal-close');
+        const btnCancelar = document.getElementById('btn-cancelar');
+        
+        btnNovoCusto.addEventListener('click', () => {
+            modalNovoCusto.classList.add('show');
+            modalNovoCusto.querySelector('.modal').classList.add('show');
+        });
+        
+        function closeModal() {
+            modalNovoCusto.classList.remove('show');
+            modalNovoCusto.querySelector('.modal').classList.remove('show');
+        }
+        
+        modalClose.addEventListener('click', closeModal);
+        btnCancelar.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        modalNovoCusto.addEventListener('click', (e) => {
+            if (e.target === modalNovoCusto) {
+                closeModal();
+            }
+        });
+        
+        // Adicionar badge de estilo
+        document.querySelectorAll('.badge').forEach(badge => {
+            if (badge.classList.contains('bg-success')) {
+                badge.style.backgroundColor = 'var(--color-accent-success)';
+                badge.style.color = 'white';
+                badge.style.padding = '3px 8px';
+                badge.style.borderRadius = 'var(--border-radius-full)';
+                badge.style.fontSize = 'var(--font-size-xs)';
+                badge.style.fontWeight = 'var(--font-weight-medium)';
+            } else if (badge.classList.contains('bg-warning')) {
+                badge.style.backgroundColor = 'var(--color-accent-warning)';
+                badge.style.color = '#212529';
+                badge.style.padding = '3px 8px';
+                badge.style.borderRadius = 'var(--border-radius-full)';
+                badge.style.fontSize = 'var(--font-size-xs)';
+                badge.style.fontWeight = 'var(--font-weight-medium)';
+            }
+        });
+    </script>
+</body>
+</html>
