@@ -1,0 +1,182 @@
+/* 
+* VEEX - Sistema de Gestão de Custos e Produção
+* Arquivo de componentes - Tabelas
+* Contém estilos para tabelas e elementos relacionados
+*/
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-bg-card);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table th {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  background-color: rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Variantes de tabela */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-sm th,
+.table-sm td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Alinhamento de células */
+.table .text-center {
+  text-align: center;
+}
+
+.table .text-right {
+  text-align: right;
+}
+
+/* Cores de linha */
+.table .table-success {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.table .table-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.table .table-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.table .table-info {
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+/* Paginação */
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination-item {
+  margin: 0 2px;
+}
+
+.pagination-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-md);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.pagination-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.pagination-link.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+.pagination-info {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* Tabela responsiva */
+@media (max-width: 768px) {
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table-responsive .table {
+    width: 100%;
+    min-width: 500px;
+  }
+  
+  /* Tabela em cards para mobile */
+  .table-mobile-cards {
+    border: 0;
+  }
+  
+  .table-mobile-cards thead {
+    display: none;
+  }
+  
+  .table-mobile-cards tr {
+    display: block;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-md);
+  }
+  
+  .table-mobile-cards td {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .table-mobile-cards td:last-child {
+    border-bottom: 0;
+  }
+  
+  .table-mobile-cards td::before {
+    content: attr(data-label);
+    font-weight: var(--font-weight-semibold);
+    text-align: left;
+    color: var(--color-text-secondary);
+  }
+}
