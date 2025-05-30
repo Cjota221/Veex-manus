@@ -1,0 +1,143 @@
+/* 
+* VEEX - Sistema de Gestão de Custos e Produção
+* Arquivo de componentes - Charts
+* Contém estilos para gráficos e visualizações
+*/
+
+.chart-container {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  position: relative;
+}
+
+.chart-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.chart-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  margin-right: var(--spacing-xs);
+}
+
+/* Estilos específicos para gráficos */
+.chart-tooltip {
+  background-color: var(--color-bg-dark);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: var(--font-size-sm);
+  z-index: var(--z-index-tooltip);
+}
+
+.chart-tooltip-title {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.chart-tooltip-value {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Cores para gráficos */
+.chart-colors {
+  --chart-color-1: var(--color-primary);
+  --chart-color-2: #4bc0c0;
+  --chart-color-3: #ffcd56;
+  --chart-color-4: #36a2eb;
+  --chart-color-5: #9966ff;
+  --chart-color-6: #ff9f40;
+  --chart-color-7: #ff6384;
+  --chart-color-8: #4caf50;
+}
+
+/* Gráfico de linha */
+.line-chart .chart-line {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  fill: none;
+}
+
+.line-chart .chart-area {
+  fill: url(#gradient);
+  opacity: 0.2;
+}
+
+.line-chart .chart-dot {
+  fill: var(--color-primary);
+  stroke: var(--color-bg-dark);
+  stroke-width: 2;
+}
+
+/* Gráfico de barras */
+.bar-chart .chart-bar {
+  fill: var(--color-primary);
+  transition: opacity var(--transition-fast);
+}
+
+.bar-chart .chart-bar:hover {
+  opacity: 0.8;
+}
+
+/* Gráfico de pizza */
+.pie-chart .chart-slice {
+  transition: transform var(--transition-fast);
+}
+
+.pie-chart .chart-slice:hover {
+  transform: scale(1.05);
+}
+
+/* Gráfico de medidor */
+.gauge-chart .chart-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.gauge-chart .chart-label {
+  font-size: var(--font-size-sm);
+  text-anchor: middle;
+  fill: var(--color-text-secondary);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .chart-container {
+    min-height: 200px;
+  }
+  
+  .chart-legend {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
