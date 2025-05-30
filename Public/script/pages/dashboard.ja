@@ -1,0 +1,152 @@
+// VEEX - Sistema de Gestão de Custos e Produção
+// dashboard.js - Funcionalidades específicas da página Dashboard
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Referências aos elementos da página
+    const margemLucro = document.getElementById('margem-lucro');
+    const margemValor = document.getElementById('margem-valor');
+    const precoSugerido = document.getElementById('preco-sugerido');
+    
+    // Inicializar dados do dashboard
+    function inicializarDashboard() {
+        // Carregar dados do resumo
+        const resumo = dataManager.getResumo();
+        
+        // Atualizar cards de métricas
+        document.querySelector('.metric-card:nth-child(1) .metric-value').innerHTML = 
+            `${resumo.producaoMes} <span class="metric-unit">pares</span>`;
+        
+        document.querySelector('.metric-card:nth-child(2) .metric-value').innerHTML = 
+            utils.formatarMoeda(resumo.custoMedioPar);
+        
+        document.querySelector('.metric-card:nth-child(3) .metric-value').innerHTML = 
+            utils.formatarMoeda(resumo.lucroTotal);
+        
+        // Atualizar tabela de modelos
+        const modelos = dataManager.getModelos();
+        const tabelaModelos = document.querySelector('.card:nth-of-type(1) tbody');
+        
+        if (tabelaModelos) {
+            tabelaModelos.innerHTML = '';
+            
+            modelos.forEach(modelo => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <div class="flex items-center gap-sm">
+                            <img src="${modelo.imagem}" alt="${modelo.nome}" style="border-radius: 4px; width: 40px; height: 40px;">
+                            <span>${modelo.nome}</span>
+                        </div>
+                    </td>
+                    <td>${utils.formatarMoeda(modelo.custo)}</td>
+                    <td>${modelo.margem}%</td>
+                    <td>${utils.formatarMoeda(modelo.preco)}</td>
+                `;
+                tabelaModelos.appendChild(tr);
+            });
+        }
+        
+        // Atualizar resumo de custos
+        document.querySelector('.flex.justify-between:nth-of-type(1) .font-semibold').textContent = 
+            utils.formatarMoeda(resumo.insumos);
+        
+        document.querySelector('.flex.justify-between:nth-of-type(2) .font-semibold').textContent = 
+            utils.formatarMoeda(resumo.custosFixos);
+        
+        document.querySelector('.flex.justify-between:nth-of-type(3) .font-semibold').textContent = 
+            utils.formatarMoeda(resumo.custosVariaveis);
+        
+        document.querySelector('.flex.justify-between:nth-of-type(4) .font-bold').textContent = 
+            utils.formatarMoeda(resumo.custoTotal);
+        
+        // Inicializar slider de margem
+        if (margemLucro && margemValor && precoSugerido) {
+            margemLucro.addEventListener('input', atualizarPrecificacao);
+            atualizarPrecificacao();
+        }
+        
+        // Inicializar gráficos
+        inicializarGraficos();
+    }
+    
+    // Atualizar precificação com base na margem
+    function atualizarPrecificacao() {
+        const margem = parseInt(margemLucro.value);
+        margemValor.textContent = `${margem}%`;
+        
+        // Cálculo do preço sugerido
+        const custoBase = 140; // Custo médio ponderado dos produtos
+        const preco = utils.calcularPreco(custoBase, margem);
+        precoSugerido.textContent = utils.formatarMoeda(preco);
+    }
+    
+    // Inicializar gráficos
+    function inicializarGraficos() {
+        // Aqui seriam inicializados os gráficos com Chart.js ou outra biblioteca
+        // Por simplicidade, estamos apenas simulando a presença dos gráficos
+        
+        console.log('Gráficos do dashboard inicializados');
+        
+        // Exemplo de como seria com Chart.js:
+        /*
+        if (typeof Chart !== 'undefined') {
+            // Gráfico de distribuição de custos
+            const ctxCustos = document.querySelector('.chart-container:nth-of-type(1) canvas').getContext('2d');
+            new Chart(ctxCustos, {
+                type: 'pie',
+                data: {
+                    labels: ['Insumos', 'Custos Fixos', 'Custos Variáveis'],
+                    datasets: [{
+                        data: [25000, 8500, 3250],
+                        backgroundColor: ['#ff6b9d', '#9d4edd', '#5a189a']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
+            // Gráfico de produção mensal
+            const ctxProducao = document.querySelector('.chart-container:nth-of-type(2) canvas').getContext('2d');
+            new Chart(ctxProducao, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                    datasets: [{
+                        label: 'Produção Mensal',
+                        data: [800, 950, 1100, 980, 1250, 0],
+                        borderColor: '#ff6b9d',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        */
+    }
+    
+    // Botões de ação
+    const btnAtualizar = document.querySelector('.header-actions .btn-primary');
+    if (btnAtualizar) {
+        btnAtualizar.addEventListener('click', function() {
+            // Simular atualização de dados
+            alert('Dados atualizados com sucesso!');
+            inicializarDashboard();
+        });
+    }
+    
+    const btnExportar = document.querySelector('.header-actions .btn-outline');
+    if (btnExportar) {
+        btnExportar.addEventListener('click', function() {
+            // Simular exportação de dados
+            alert('Relatório exportado com sucesso!');
+        });
+    }
+    
+    // Inicializar a página
+    inicializarDashboard();
+});
