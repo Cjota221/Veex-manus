@@ -1,0 +1,172 @@
+/* 
+* VEEX - Sistema de Gestão de Custos e Produção
+* Arquivo de responsividade
+* Contém ajustes específicos para diferentes tamanhos de tela
+*/
+
+/* Dispositivos extra pequenos (telefones, menos de 576px) */
+@media (max-width: 575.98px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: var(--spacing-md);
+  }
+  
+  .header h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-md);
+  }
+  
+  .metric-icon {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .metric-value {
+    font-size: var(--font-size-xl);
+  }
+  
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: var(--spacing-md);
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Dispositivos pequenos (tablets em modo retrato, 576px e acima) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .sidebar {
+    width: 240px;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .grid-3-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dispositivos médios (tablets em modo paisagem, 768px e acima) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sidebar {
+    width: 220px;
+  }
+  
+  .main-content {
+    margin-left: 220px;
+  }
+  
+  .sidebar.collapsed {
+    width: 70px;
+  }
+  
+  .sidebar.collapsed + .main-content {
+    margin-left: 70px;
+  }
+  
+  .grid-3-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dispositivos grandes (desktops, 992px e acima) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .sidebar {
+    width: 240px;
+  }
+  
+  .main-content {
+    margin-left: 240px;
+  }
+  
+  .sidebar.collapsed {
+    width: 70px;
+  }
+  
+  .sidebar.collapsed + .main-content {
+    margin-left: 70px;
+  }
+}
+
+/* Dispositivos extra grandes (desktops grandes, 1200px e acima) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Dispositivos extra extra grandes (desktops muito grandes, 1400px e acima) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Orientação específica */
+@media (orientation: portrait) {
+  /* Ajustes para orientação retrato */
+}
+
+@media (orientation: landscape) {
+  /* Ajustes para orientação paisagem */
+}
+
+/* Altura da tela */
+@media (max-height: 600px) {
+  .sidebar {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .sidebar-logo {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .nav-link {
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+}
+
+/* Suporte para dark mode do sistema */
+@media (prefers-color-scheme: dark) {
+  /* Já estamos em dark mode por padrão, então não precisamos fazer ajustes */
+}
+
+/* Suporte para preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
