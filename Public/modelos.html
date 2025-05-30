@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEEX - Modelos</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="./dashboard.html">
+                    <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="./dashboard.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./modelos.html" class="nav-link active">
+                        <div class="nav-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./insumos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <span class="nav-text">Insumos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-fixos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Custos Fixos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-variaveis.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Custos Variáveis</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./producao.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="nav-text">Produção</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./relatorios.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./configuracoes.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Usuário</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </aside>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-button" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Modelos</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="btn-novo-modelo">
+                        <i class="fas fa-plus"></i>
+                        Novo Modelo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="card mb-lg">
+                <div class="card-header">
+                    <h2 class="card-title">Filtros</h2>
+                </div>
+                <div class="p-md">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label class="form-label">Categoria</label>
+                            <select class="form-control form-select">
+                                <option value="">Todas</option>
+                                <option value="esportivo">Esportivo</option>
+                                <option value="casual">Casual</option>
+                                <option value="social">Social</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Ordenar por</label>
+                            <select class="form-control form-select">
+                                <option value="nome">Nome</option>
+                                <option value="custo">Custo (menor-maior)</option>
+                                <option value="custo-desc">Custo (maior-menor)</option>
+                                <option value="margem">Margem</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Buscar</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Nome do modelo...">
+                                <div class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modelos Grid -->
+            <div class="card-grid">
+                <!-- Modelo 1 -->
+                <div class="card">
+                    <div class="model-image">
+                        <img src="https://via.placeholder.com/150" alt="Tênis Esportivo">
+                    </div>
+                    <div class="model-name">Tênis Esportivo</div>
+                    <div class="model-category">Esportivo</div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Custo:</span>
+                        <span class="font-semibold">R$ 95,00</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Margem:</span>
+                        <span class="font-semibold">25%</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Preço:</span>
+                        <span class="font-bold text-primary">R$ 119,00</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="flex justify-between">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-calculator"></i>
+                                Simular
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modelo 2 -->
+                <div class="card">
+                    <div class="model-image">
+                        <img src="https://via.placeholder.com/150" alt="Sandália Casual">
+                    </div>
+                    <div class="model-name">Sandália Casual</div>
+                    <div class="model-category">Casual</div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Custo:</span>
+                        <span class="font-semibold">R$ 66,00</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Margem:</span>
+                        <span class="font-semibold">30%</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Preço:</span>
+                        <span class="font-bold text-primary">R$ 36,00</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="flex justify-between">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-calculator"></i>
+                                Simular
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modelo 3 -->
+                <div class="card">
+                    <div class="model-image">
+                        <img src="https://via.placeholder.com/150" alt="Sapato Social">
+                    </div>
+                    <div class="model-name">Sapato Social</div>
+                    <div class="model-category">Social</div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Custo:</span>
+                        <span class="font-semibold">R$ 112,00</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Margem:</span>
+                        <span class="font-semibold">20%</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Preço:</span>
+                        <span class="font-bold text-primary">R$ 135,00</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="flex justify-between">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-calculator"></i>
+                                Simular
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modelo 4 -->
+                <div class="card">
+                    <div class="model-image">
+                        <img src="https://via.placeholder.com/150" alt="Bota Feminina">
+                    </div>
+                    <div class="model-name">Bota Feminina</div>
+                    <div class="model-category">Feminino</div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Custo:</span>
+                        <span class="font-semibold">R$ 135,00</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Margem:</span>
+                        <span class="font-semibold">25%</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-md">
+                        <span>Preço:</span>
+                        <span class="font-bold text-primary">R$ 169,00</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="flex justify-between">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-calculator"></i>
+                                Simular
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paginação -->
+            <div class="flex justify-center mt-xl">
+                <div class="pagination">
+                    <div class="pagination-item">
+                        <a href="#" class="pagination-link">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </div>
+                    <div class="pagination-item">
+                        <a href="#" class="pagination-link active">1</a>
+                    </div>
+                    <div class="pagination-item">
+                        <a href="#" class="pagination-link">2</a>
+                    </div>
+                    <div class="pagination-item">
+                        <a href="#" class="pagination-link">3</a>
+                    </div>
+                    <div class="pagination-item">
+                        <a href="#" class="pagination-link">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal de Novo Modelo -->
+    <div class="modal-backdrop" id="modal-novo-modelo">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Novo Modelo</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-novo-modelo">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Modelo</label>
+                        <input type="text" class="form-control" placeholder="Ex: Tênis Esportivo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Categoria</label>
+                        <select class="form-control form-select">
+                            <option value="">Selecione uma categoria</option>
+                            <option value="esportivo">Esportivo</option>
+                            <option value="casual">Casual</option>
+                            <option value="social">Social</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Imagem</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Insumos Utilizados</label>
+                        <div class="card p-md mb-md">
+                            <div class="flex justify-between mb-sm">
+                                <div class="flex-1">
+                                    <select class="form-control form-select">
+                                        <option value="">Selecione um insumo</option>
+                                        <option value="couro">Couro</option>
+                                        <option value="borracha">Borracha</option>
+                                        <option value="tecido">Tecido</option>
+                                        <option value="cola">Cola</option>
+                                    </select>
+                                </div>
+                                <div class="ml-md" style="width: 100px;">
+                                    <input type="number" class="form-control" placeholder="Qtd.">
+                                </div>
+                                <button type="button" class="btn btn-icon ml-sm">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="table-container">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Insumo</th>
+                                            <th>Quantidade</th>
+                                            <th>Custo</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Couro</td>
+                                            <td>2 m²</td>
+                                            <td>R$ 40,00</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Borracha</td>
+                                            <td>1 kg</td>
+                                            <td>R$ 15,00</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" class="text-right font-semibold">Total:</td>
+                                            <td class="font-bold">R$ 55,00</td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Margem de Lucro (%)</label>
+                        <input type="range" class="form-range" min="0" max="100" value="30">
+                        <div class="flex justify-between">
+                            <span>0%</span>
+                            <span class="font-semibold">30%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Preço Sugerido</label>
+                        <div class="input-group">
+                            <div class="input-group-text">R$</div>
+                            <input type="text" class="form-control" value="71,50" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                <button class="btn btn-primary" id="btn-salvar">Salvar Modelo</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Modal
+        const modalNovoModelo = document.getElementById('modal-novo-modelo');
+        const btnNovoModelo = document.getElementById('btn-novo-modelo');
+        const modalClose = document.getElementById('modal-close');
+        const btnCancelar = document.getElementById('btn-cancelar');
+        
+        btnNovoModelo.addEventListener('click', () => {
+            modalNovoModelo.classList.add('show');
+            modalNovoModelo.querySelector('.modal').classList.add('show');
+        });
+        
+        function closeModal() {
+            modalNovoModelo.classList.remove('show');
+            modalNovoModelo.querySelector('.modal').classList.remove('show');
+        }
+        
+        modalClose.addEventListener('click', closeModal);
+        btnCancelar.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        modalNovoModelo.addEventListener('click', (e) => {
+            if (e.target === modalNovoModelo) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
