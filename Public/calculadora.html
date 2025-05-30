@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEEX - Calculadora</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="./dashboard.html">
+                    <span class="logo-text">VE<span class="logo-highlight">E</span>X</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="./dashboard.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./modelos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./insumos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <span class="nav-text">Insumos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-fixos.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Custos Fixos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./custos-variaveis.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Custos Variáveis</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./producao.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <span class="nav-text">Produção</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./calculadora.html" class="nav-link active">
+                        <div class="nav-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <span class="nav-text">Calculadora</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./relatorios.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="nav-text">Relatórios</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="./configuracoes.html" class="nav-link">
+                        <div class="nav-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Usuário</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </aside>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-button" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="header">
+                <h1>Calculadora de Preços</h1>
+            </div>
+            
+            <div class="grid-2-cols">
+                <!-- Calculadora -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Simulador de Preço</h2>
+                    </div>
+                    
+                    <div class="p-lg">
+                        <div class="form-group">
+                            <label class="form-label">Selecione um Modelo</label>
+                            <select class="form-control form-select" id="select-modelo">
+                                <option value="">Selecione um modelo</option>
+                                <option value="tenis">Tênis Esportivo</option>
+                                <option value="sandalia">Sandália Casual</option>
+                                <option value="sapato">Sapato Social</option>
+                                <option value="bota">Bota Feminina</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Custo de Produção</label>
+                            <div class="input-group">
+                                <div class="input-group-text">R$</div>
+                                <input type="text" class="form-control" id="custo-producao" value="95,00">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Margem de Lucro (%)</label>
+                            <input type="range" class="form-range" min="0" max="100" value="30" id="margem-lucro">
+                            <div class="flex justify-between">
+                                <span>0%</span>
+                                <span class="font-semibold" id="margem-valor">30%</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-md mb-md bg-primary" style="background-color: var(--color-primary);">
+                            <div class="text-center">
+                                <div class="mb-sm">Preço Sugerido</div>
+                                <div style="font-size: 2rem; font-weight: bold;" id="preco-sugerido">R$ 123,50</div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid-2-cols">
+                            <div class="card p-md text-center">
+                                <div class="mb-sm">Lucro por Unidade</div>
+                                <div style="font-size: 1.5rem; font-weight: bold;" id="lucro-unidade">R$ 28,50</div>
+                            </div>
+                            
+                            <div class="card p-md text-center">
+                                <div class="mb-sm">Lucro em %</div>
+                                <div style="font-size: 1.5rem; font-weight: bold;" id="lucro-percentual">30%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comparativo de Margens -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Comparativo de Margens</h2>
+                    </div>
+                    
+                    <div class="p-lg">
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Margem</th>
+                                        <th>Preço</th>
+                                        <th>Lucro</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10%</td>
+                                        <td>R$ 104,50</td>
+                                        <td>R$ 9,50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20%</td>
+                                        <td>R$ 114,00</td>
+                                        <td>R$ 19,00</td>
+                                    </tr>
+                                    <tr class="table-success">
+                                        <td>30%</td>
+                                        <td>R$ 123,50</td>
+                                        <td>R$ 28,50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40%</td>
+                                        <td>R$ 133,00</td>
+                                        <td>R$ 38,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>50%</td>
+                                        <td>R$ 142,50</td>
+                                        <td>R$ 47,50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-lg">
+                            <h3 class="mb-md">Detalhamento de Custos</h3>
+                            <div class="mb-md">
+                                <div class="flex justify-between mb-sm">
+                                    <span>Insumos:</span>
+                                    <span>R$ 65,00</span>
+                                </div>
+                                <div class="flex justify-between mb-sm">
+                                    <span>Custos Fixos:</span>
+                                    <span>R$ 20,00</span>
+                                </div>
+                                <div class="flex justify-between mb-sm">
+                                    <span>Custos Variáveis:</span>
+                                    <span>R$ 10,00</span>
+                                </div>
+                                <hr class="mb-sm" style="border-color: rgba(255, 255, 255, 0.1);">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold">Custo Total:</span>
+                                    <span class="font-bold">R$ 95,00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-lg">
+                            <button class="btn btn-primary btn-block">
+                                <i class="fas fa-save"></i>
+                                Salvar Simulação
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gráfico de Simulação -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Gráfico de Simulação</h2>
+                </div>
+                
+                <div class="p-lg">
+                    <div class="chart-container">
+                        <!-- Aqui seria inserido um gráfico via JavaScript -->
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius-md);">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line" style="font-size: 48px; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                                <p>Gráfico de simulação de preço x lucro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Histórico de Simulações -->
+            <div class="card mt-xl">
+                <div class="card-header">
+                    <h2 class="card-title">Histórico de Simulações</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Modelo</th>
+                                <th>Custo</th>
+                                <th>Margem</th>
+                                <th>Preço</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>30/05/2025</td>
+                                <td>Tênis Esportivo</td>
+                                <td>R$ 95,00</td>
+                                <td>30%</td>
+                                <td>R$ 123,50</td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-redo"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>29/05/2025</td>
+                                <td>Sandália Casual</td>
+                                <td>R$ 66,00</td>
+                                <td>25%</td>
+                                <td>R$ 82,50</td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-redo"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>28/05/2025</td>
+                                <td>Sapato Social</td>
+                                <td>R$ 112,00</td>
+                                <td>40%</td>
+                                <td>R$ 156,80</td>
+                                <td>
+                                    <div class="flex gap-sm">
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-redo"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            } else {
+                sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            }
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 992) {
+                if (!sidebar.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Calculadora
+        const margemLucro = document.getElementById('margem-lucro');
+        const margemValor = document.getElementById('margem-valor');
+        const custoProducao = document.getElementById('custo-producao');
+        const precoSugerido = document.getElementById('preco-sugerido');
+        const lucroUnidade = document.getElementById('lucro-unidade');
+        const lucroPercentual = document.getElementById('lucro-percentual');
+        
+        function calcularPreco() {
+            const custo = parseFloat(custoProducao.value.replace(',', '.'));
+            const margem = parseInt(margemLucro.value);
+            
+            if (!isNaN(custo)) {
+                const preco = custo * (1 + margem / 100);
+                const lucro = preco - custo;
+                
+                precoSugerido.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+                lucroUnidade.textContent = `R$ ${lucro.toFixed(2).replace('.', ',')}`;
+                lucroPercentual.textContent = `${margem}%`;
+                margemValor.textContent = `${margem}%`;
+            }
+        }
+        
+        margemLucro.addEventListener('input', calcularPreco);
+        custoProducao.addEventListener('input', calcularPreco);
+        
+        // Selecionar modelo
+        const selectModelo = document.getElementById('select-modelo');
+        
+        selectModelo.addEventListener('change', () => {
+            let custo = 0;
+            
+            switch (selectModelo.value) {
+                case 'tenis':
+                    custo = 95.00;
+                    break;
+                case 'sandalia':
+                    custo = 66.00;
+                    break;
+                case 'sapato':
+                    custo = 112.00;
+                    break;
+                case 'bota':
+                    custo = 135.00;
+                    break;
+            }
+            
+            if (custo > 0) {
+                custoProducao.value = custo.toFixed(2).replace('.', ',');
+                calcularPreco();
+            }
+        });
+        
+        // Inicializar calculadora
+        calcularPreco();
+    </script>
+</body>
+</html>
